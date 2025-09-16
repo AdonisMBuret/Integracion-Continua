@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Chequear el código
+      # 1. Descargar el código del repo
       - name: Checkout repository
         uses: actions/checkout@v3
 
@@ -18,7 +18,23 @@ jobs:
       - name: Run Hola Mundo
         run: python3 HolaMundo.py
 
-      # 3. Enviar notificación a ntfy.sh
+      # 3. Enviar notificación enriquecida a ntfy.sh
       - name: Send notification to ntfy.sh
         run: |
-          curl -d "Se subió código a la rama main en el repo $GITHUB_REPOSITORY" ntfy.sh/devops-itla
+          curl -H "Title: CI/CD - Electiva 2 DevOps" \
+               -H "Priority: high" \
+               -H "Tags: github,ci,devops,itla" \
+               -d "Build EXITOSO ✅
+
+Estudiante: Adonis Mercedes Buret #2021-2396
+Curso: Electiva 2 - DevOps
+Profesor: Elys Cruz
+
+Repositorio: $GITHUB_REPOSITORY
+Rama: $GITHUB_REF_NAME
+Commit: $GITHUB_SHA
+Autor: $GITHUB_ACTOR
+Mensaje: $GITHUB_EVENT_HEAD_COMMIT_MESSAGE
+
+Ver detalles: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
+" ntfy.sh/devops-itla
