@@ -1,0 +1,24 @@
+name: Alerta Hola Mundo
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Chequear el código
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # 2. Ejecutar el Hola Mundo en Python
+      - name: Run Hola Mundo
+        run: python3 HolaMundo.py
+
+      # 3. Enviar notificación a ntfy.sh
+      - name: Send notification to ntfy.sh
+        run: |
+          curl -d "Se subió código a la rama main en el repo $GITHUB_REPOSITORY" ntfy.sh/devops-itla
