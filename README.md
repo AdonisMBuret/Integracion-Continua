@@ -52,7 +52,7 @@ jobs:
           curl -H "Title: CI/CD - Electiva 2 DevOps" \
                -H "Priority: high" \
                -H "Tags: github,ci,devops,itla" \
-               -d $'Build EXITOSO ✅\n\nEstudiante: Adonis Mercedes Buret\nCurso: Electiva 2 - DevOps\nProfesor: Elys Cruz\n\nRepositorio: $GITHUB_REPOSITORY\nRama: $GITHUB_REF_NAME\nCommit: $GITHUB_SHA\nAutor: $GITHUB_ACTOR\nMensaje: $GITHUB_EVENT_HEAD_COMMIT_MESSAGE\n\nVer detalles: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID' \
+               -d $'Build EXITOSO ✅\n\nEstudiante: Adonis Mercedes Buret #2021-2396 \nCurso: Electiva 2 - DevOps\nProfesor: Elys Cruz\n\nRepositorio: https://github.com/AdonisMBuret/Integracion-Continua \nRama: main \n\nVer detalles: https://github.com/AdonisMBuret/Integracion-Continua/actions' \
                ntfy.sh/devops-itla
 ```
 
